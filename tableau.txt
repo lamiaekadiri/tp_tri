@@ -1,0 +1,27 @@
+// ceci est l'étape 4 //
+
+
+resultat de index : n = 100 : 4950 comparaisons , 0.42 ms
+n = 500 : 124750 comparaisons , 9.91 ms
+n = 1000 : 499500 comparaisons , 40.69 ms
+n = 2000 : 1999000 comparaisons , 163.56 ms
+n = 5000 : 12497500 comparaisons , 987.43 ms
+n = 10000 : 49995000 comparaisons , 3981.82 ms
+ // QUESTIONS - //
+
+Questions :
+
+1. Que constatez-vous en comparant la colonne “Comparaisons” et la colonne
+“n × n” 
+2. Quand n est multiplié par 10 (de 100 à 1 000, puis de 1 000 à 10 000), par
+combien le nombre de comparaisons est-il multiplié ? Et le temps d’exécution ?
+3. Y a-t-il une corrélation visible entre le nombre de comparaisons et le temps
+d’exécution ? Pourquoi est-ce attendu ?
+4. En déduire la notation grand O du tri à bulles dans le cas défavorable.
+
+// Réponses //
+
+1.Le nombre de comparaisons est environ la moitié de n×n (formule exacte : n×(n-1)/2). Les deux colonnes évoluent pareil.
+2. Quand n est multiplié par 10, le nombre de comparaisons est multiplié par 100. Le temps aussi.
+3. Oui. Plus il y a de comparaisons, plus ça prend du temps — c'est logique car chaque comparaison prend du temps au processeur.
+4. O(n²) — quadratique.
