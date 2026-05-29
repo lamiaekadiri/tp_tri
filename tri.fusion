@@ -1,0 +1,42 @@
+<?php
+function fusionner($gauche,$droite){
+    $resultat=[];
+    $i=0;
+    $j=0;
+    while($i<count($gauche)&&$j<count($droite)){
+        if($gauche[$i]<=$droite[$j]){
+            $resultat[]=$gauche[$i];
+            $i++;
+        }
+        else{
+            $resultat[]=$droite[$j];
+            $j++;
+        }
+    }
+    if($i==count($gauche)){
+         //$resultat=array_merge($resultat,array_slice($droite,$j));
+         return array_merge($resultat,array_slice($droite,$j));
+    }
+    
+       //$resultat=array_merge($resultat,array_slice($gauche,$i));
+       return array_merge($resultat,array_slice($gauche,$i));
+       
+    
+}
+
+function tri_fusion($tab){
+    if(count($tab)<=1){
+        return $tab;
+    }
+    else{
+        $gauche=array_slice($tab,0,intdiv(count($tab),2));
+        $droite=array_slice($tab,intdiv(count($tab),2));
+
+        return fusionner(tri_fusion($gauche),tri_fusion($droite));
+    }
+}
+
+$tab=[3,5,0,19,8,6,18,8,1,11];
+$result=tri_fusion($tab);
+echo "voici le tableau avant:".implode(',',$tab).'<br>'."et le voici apres:".implode(',',$result);
+?>
